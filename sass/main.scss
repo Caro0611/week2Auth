@@ -3,11 +3,74 @@
 	margin: 0; padding: 0; box-sizing: border-box;
 }
 
-body { font: 20px Helvetica, Arial;
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('../fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'pacificoregular';
+    src: url('../fonts/pacifico-webfont.woff2') format('woff2'),
+         url('../fonts/pacifico-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+	//font: 20px 'caviar_dreamsregular', Helvetica, Arial;
+  background: rgba(71, 75, 199, 0.90);
+}
+
+
+
+
+$jpinput-height: 40px;
+$jpinput-radius: 6px;
+$jpinput-padding: 10px 16px;
+$jpinput-bg: #31c3dd;
+$jpinput-color: #27293e;
+$jpinput-ph-color: $jpinput-color;
+$jpinput-phide-color: $jpinput-bg;
+
+
+#nickbox {
+  height: $jpinput-height;
+  padding: $jpinput-padding;
+  transition: transform 225ms ease-in-out;
+  background: $jpinput-bg;
+  color: $jpinput-color;
+	margin-top: 20px;
+	margin-left: 130px;
+
+}
+
+#instruction{
+	overflow: hidden;
+	font: 20px 'pacificoregular', Helvetica, Arial;
+	color: #f2f5f5;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+
+input {
+  appearance: none;
+  box-sizing: border-box;
+  border-radius: $jpinput-radius;
+  display: inline-block;
+  outline: 0;
+  width: 30%;
 }
 
 form {
-	background: #e1d3f1;
+	background: #2A2C44;
 	padding: 10px;
 	position: fixed;
 	bottom: 0;
@@ -15,16 +78,59 @@ form {
 
 	input { border: 5;
 		      padding: 10px;
-					@include center;
-		      width: 70%; 
+		      width: 70%;
 		      margin-right: 0.5%; }
 
-	button { width: 9%; background: rgb(130, 224,255); border: none; padding: 10px; }
+	button { width: 9%;
+		background: #31c3dd;
+		border: none;
+		padding: 10px; }
 }
 
 #messages {
-	list-style-type: none; margin: 0; padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font: 20px 'caviar_dreamsregular', Helvetica, Arial;
 
 	li { padding: 5px 10px;	}
-	li:nth-child(odd) { background: #eee; }
+	li:nth-child(odd) { background: #f2f5f5; }
+}
+
+$button-background: #31c3dd;
+$button-foreground: #fff;
+
+.button {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  padding: .6em 1.5em;
+  border: 2px solid darken($button-background, 20%);
+  background: $button-background;
+  color: $button-foreground;
+  border-radius: 6px;
+  font-family: 'caviar_dreamsregular', sans-serif;
+  box-shadow: none;
+  transition:
+    background 100ms,
+    color 100ms,
+    box-shadow 100ms,
+    border-color 100ms;
+
+
+  &:hover,
+  &:focus {
+    background: lighten($button-background, 10%);
+    border-color: darken($button-background, 5%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 15px darken($button-background, 10%);
+  }
+
+  &:active {
+    color: darken($button-background, 20%);
+    border-color: darken($button-background, 20%);
+  }
 }

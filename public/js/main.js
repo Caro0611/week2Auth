@@ -1,5 +1,5 @@
 (() => {
-  const socket = io();
+  const socket = io('/music');
 
   let messageList = document.querySelector('ul'),
       chatForm = document.querySelector('form'),
@@ -43,6 +43,8 @@ function appendDMessage(msg) {
   let newMsg = `<li>${msg}</li>`;
   messageList.innerHTML += newMsg;
 }
+
+
 
 nameInput.addEventListener('change', setNickname, false);
 chatForm.addEventListener('submit', handleSendMessage, false);

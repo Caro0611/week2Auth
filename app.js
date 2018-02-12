@@ -13,24 +13,35 @@ const server = app.listen(3000, () => {
   console.log ('app running on port 3000!');
 });
 
-io.attach(server);
+io.attach(server); //music.attach(server); 
 
-io.on('connection', (socket) => { //function(socket) { ...}
+//music space
+const music = io.of('/music');
+
+
+
+
+
+
+
+music.on('connection', (socket) => { //function(socket) { ...}
  console.log('a user has connected!');
 
- io.emit('chat message', { for:'everyone', message : `${socket.id} is here!`});
+ music.emit('chat message', { for:'everyone', message : `${socket.id} is here!`});
 
 //handle messages sent from the client
 socket.on('chat message', msg => {
-  io.emit('chat message', { for:'everyone', message : msg});
+  music.emit('chat message', { for:'everyone', message : msg});
 });
 
 
 socket.on('disconnect', () => {
   console.log('a user has disconnected!');
 
-  io.emit('disconnect message', `${socket.id} has left the building`);
+  music.emit('disconnect message', `${socket.id} has left the building`);
 });
+
+
 
 
 });

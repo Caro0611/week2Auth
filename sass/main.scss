@@ -46,7 +46,8 @@ $jpinput-phide-color: $jpinput-bg;
   background: $jpinput-bg;
   color: $jpinput-color;
 	margin-top: 20px;
-	margin-left: 130px;
+	margin-left: 20px;
+	text-align: center;
 
 }
 
@@ -56,7 +57,7 @@ $jpinput-phide-color: $jpinput-bg;
 	color: #f2f5f5;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	text-align: center;
+	margin-left: 15px;
 }
 
 
@@ -91,6 +92,8 @@ form {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	border: 5;
+	margin: 15px;
 	font: 20px 'caviar_dreamsregular', Helvetica, Arial;
 
 	li { padding: 5px 10px;	}

@@ -31,6 +31,10 @@ function handleSendMessage(e) {
   return false;
 }
 
+$("#channel").change(function(){
+  socket.emit('changeRoom',$("#channel").val());
+}); //finnally I tried to create this fucntion to change room.
+
 function appendMessage(msg) {
   //debugger;
   let newMsg = `<li>${msg.message}</li>`;
@@ -44,6 +48,10 @@ function appendDMessage(msg) {
   messageList.innerHTML += newMsg;
 }
 
+//listening event to run change room function. clean message and display welcome message.
+socket.on('changeRoom', function(channel){
+  $("#message").html('').append($('<li>').text('system : Welcome:' +channel));
+})
 
 
 nameInput.addEventListener('change', setNickname, false);
